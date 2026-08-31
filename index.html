@@ -1,8 +1,10 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>NEONBYTE SHADY</title>
 
 <style>
@@ -26,10 +28,23 @@ body{
     min-height:100vh;
     color:white;
     font-family:'VT323',monospace;
+
     background:
-        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px),
-        radial-gradient(circle at 50% 20%,#26004d,#090014 65%);
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+        radial-gradient(
+            circle at 50% 20%,
+            #26004d,
+            #090014 65%
+        );
+
     background-size:35px 35px;
 }
 
@@ -39,33 +54,45 @@ body:after{
     inset:0;
     pointer-events:none;
     z-index:9999;
-    background:repeating-linear-gradient(
-        to bottom,
-        transparent 0px,
-        transparent 3px,
-        rgba(255,255,255,.025) 4px
-    );
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            transparent 0px,
+            transparent 3px,
+            rgba(255,255,255,.025) 4px
+        );
 }
 
 header{
     position:sticky;
     top:0;
     z-index:500;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
     gap:20px;
+
     padding:20px 6%;
+
     background:rgba(8,0,20,.97);
+
     border-bottom:2px solid var(--pink);
-    box-shadow:0 0 20px rgba(255,41,217,.25);
+
+    box-shadow:
+        0 0 20px rgba(255,41,217,.25);
 }
 
 .logo{
     font-family:'Press Start 2P';
     font-size:19px;
+
     color:var(--cyan);
-    text-shadow:3px 3px 0 var(--pink),0 0 15px var(--cyan);
+
+    text-shadow:
+        3px 3px 0 var(--pink),
+        0 0 15px var(--cyan);
 }
 
 .logo span{
@@ -81,18 +108,25 @@ header{
 
 .btn{
     border:1px solid var(--cyan);
+
     background:transparent;
+
     color:var(--cyan);
+
     padding:10px 14px;
+
     font-family:'VT323';
     font-size:21px;
+
     cursor:pointer;
 }
 
 .btn:hover{
     background:var(--cyan);
     color:#090014;
-    box-shadow:0 0 18px var(--cyan);
+
+    box-shadow:
+        0 0 18px var(--cyan);
 }
 
 .btn.pink{
@@ -103,26 +137,45 @@ header{
 .btn.pink:hover{
     background:var(--pink);
     color:white;
-    box-shadow:0 0 18px var(--pink);
+
+    box-shadow:
+        0 0 18px var(--pink);
 }
 
 .hero{
     min-height:410px;
+
     display:flex;
     flex-direction:column;
+
     justify-content:center;
     align-items:center;
+
     text-align:center;
+
     padding:60px 20px;
+
     background:
-        radial-gradient(circle at 50% 80%,rgba(255,20,147,.3),transparent 40%),
-        linear-gradient(180deg,#17002e,#090014);
+        radial-gradient(
+            circle at 50% 80%,
+            rgba(255,20,147,.3),
+            transparent 40%
+        ),
+        linear-gradient(
+            180deg,
+            #17002e,
+            #090014
+        );
 }
 
 .hero h1{
     font-family:'Press Start 2P';
-    font-size:clamp(25px,6vw,65px);
+
+    font-size:
+        clamp(25px,6vw,65px);
+
     line-height:1.5;
+
     text-shadow:
         5px 5px 0 var(--pink),
         0 0 30px var(--cyan);
@@ -130,185 +183,293 @@ header{
 
 .hero p{
     color:var(--cyan);
+
     font-size:28px;
+
     margin-top:20px;
+
     letter-spacing:2px;
 }
 
 .hero small{
     color:var(--pink);
+
     font-size:22px;
+
     margin-top:15px;
 }
 
 .store{
     max-width:1250px;
+
     margin:auto;
+
     padding:45px 20px;
 }
 
 .title{
     font-family:'Press Start 2P';
+
     color:var(--cyan);
+
     font-size:20px;
+
     margin-bottom:25px;
-    text-shadow:0 0 15px var(--cyan);
+
+    text-shadow:
+        0 0 15px var(--cyan);
 }
 
 .controls{
     display:flex;
+
     gap:10px;
+
     margin-bottom:30px;
+
     flex-wrap:wrap;
 }
 
 .search{
     flex:1;
+
     min-width:230px;
+
     padding:13px;
+
     background:#0c0017;
+
     border:1px solid var(--pink);
+
     color:white;
+
     font-family:'VT323';
+
     font-size:22px;
+
     outline:none;
 }
 
 .search:focus{
-    box-shadow:0 0 15px var(--pink);
+    box-shadow:
+        0 0 15px var(--pink);
 }
 
 select{
     padding:10px 15px;
+
     background:#0c0017;
+
     border:1px solid var(--cyan);
+
     color:var(--cyan);
+
     font-family:'VT323';
+
     font-size:21px;
 }
 
 .games{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(260px,1fr)
+        );
+
     gap:22px;
 }
 
 .card{
-    background:linear-gradient(145deg,#19002e,#0c0018);
+    background:
+        linear-gradient(
+            145deg,
+            #19002e,
+            #0c0018
+        );
+
     border:1px solid var(--pink);
+
     padding:15px;
+
     transition:.25s;
 }
 
 .card:hover{
     transform:translateY(-7px);
+
     border-color:var(--cyan);
-    box-shadow:0 0 20px rgba(0,246,255,.3);
+
+    box-shadow:
+        0 0 20px rgba(0,246,255,.3);
 }
 
 .cover{
     width:100%;
     height:190px;
+
     object-fit:cover;
+
     display:block;
+
     border:1px solid #482058;
+
     background:#13001e;
 }
 
 .coverFallback{
     height:190px;
+
     display:flex;
+
     align-items:center;
     justify-content:center;
+
     text-align:center;
+
     padding:15px;
-    background:radial-gradient(circle,#4b137b,#13001e 70%);
+
+    background:
+        radial-gradient(
+            circle,
+            #4b137b,
+            #13001e 70%
+        );
+
     border:1px solid #482058;
+
     color:var(--pink);
+
     font-family:'Press Start 2P';
+
     font-size:15px;
+
     line-height:1.7;
 }
 
 .card h3{
     margin-top:15px;
+
     font-size:28px;
 }
 
 .platform{
     color:#888;
+
     font-size:19px;
 }
 
 .price{
     color:var(--cyan);
+
     font-size:31px;
+
     margin:8px 0 12px;
-    text-shadow:0 0 8px var(--cyan);
+
+    text-shadow:
+        0 0 8px var(--cyan);
 }
 
 .buy{
     width:100%;
+
     padding:12px;
+
     background:var(--pink);
+
     border:none;
+
     color:white;
+
     font-family:'VT323';
+
     font-size:24px;
+
     cursor:pointer;
 }
 
 .buy:hover{
     background:var(--cyan);
+
     color:#090014;
 }
 
 .modal{
     display:none;
+
     position:fixed;
+
     inset:0;
+
     background:rgba(0,0,0,.85);
+
     z-index:2000;
+
     justify-content:center;
     align-items:center;
+
     padding:20px;
 }
 
 .box{
     width:100%;
+
     max-width:600px;
+
     max-height:90vh;
+
     overflow:auto;
+
     background:#10001d;
+
     border:2px solid var(--cyan);
+
     padding:25px;
-    box-shadow:0 0 40px rgba(0,246,255,.25);
+
+    box-shadow:
+        0 0 40px rgba(0,246,255,.25);
 }
 
 .box h2{
     font-family:'Press Start 2P';
+
     font-size:18px;
+
     color:var(--cyan);
+
     margin-bottom:20px;
 }
 
 .close{
     float:right;
+
     border:0;
+
     background:none;
+
     color:var(--pink);
+
     font-size:32px;
+
     cursor:pointer;
 }
 
 .input{
     width:100%;
+
     padding:13px;
+
     margin-bottom:12px;
+
     background:#050008;
+
     border:1px solid var(--pink);
+
     color:white;
+
     font-family:'VT323';
+
     font-size:21px;
 }
 
@@ -322,40 +483,57 @@ textarea.input{
 
 .profile-head{
     text-align:center;
+
     padding-bottom:20px;
+
     border-bottom:1px solid #382044;
 }
 
 .avatar{
     width:130px;
     height:130px;
+
     border-radius:50%;
+
     object-fit:cover;
+
     border:3px solid var(--cyan);
-    box-shadow:0 0 25px rgba(0,246,255,.4);
+
+    box-shadow:
+        0 0 25px rgba(0,246,255,.4);
 }
 
 .avatar-placeholder{
     width:130px;
     height:130px;
+
     border-radius:50%;
+
     margin:auto;
+
     display:flex;
+
     align-items:center;
     justify-content:center;
+
     background:#160029;
+
     border:3px solid var(--cyan);
+
     font-size:60px;
 }
 
 .profile-name{
     color:var(--pink);
+
     font-size:32px;
+
     margin:10px;
 }
 
 .profile-email{
     color:#888;
+
     font-size:19px;
 }
 
@@ -365,94 +543,135 @@ textarea.input{
 
 .cart-item{
     display:flex;
+
     justify-content:space-between;
+
     gap:10px;
+
     padding:12px 0;
+
     border-bottom:1px solid #35203d;
+
     font-size:21px;
 }
 
 .remove{
     background:none;
+
     border:0;
+
     color:var(--pink);
+
     cursor:pointer;
+
     font-size:22px;
 }
 
 .discount{
     display:flex;
+
     gap:5px;
+
     margin:18px 0;
 }
 
 .discount input{
     flex:1;
+
     padding:10px;
+
     background:#050008;
+
     border:1px solid var(--pink);
+
     color:white;
+
     font-family:'VT323';
+
     font-size:20px;
 }
 
 .total{
     text-align:right;
+
     color:var(--cyan);
+
     font-size:30px;
+
     margin:15px 0;
 }
 
 .message{
     margin:10px 0;
+
     color:var(--cyan);
+
     font-size:19px;
 }
 
 .admin-game{
     display:grid;
+
     grid-template-columns:100px 1fr;
+
     gap:12px;
+
     padding:12px 0;
+
     border-bottom:1px solid #392040;
 }
 
 .admin-game img{
     width:100px;
     height:60px;
+
     object-fit:cover;
 }
 
 .preview{
     width:100%;
+
     max-height:220px;
+
     object-fit:cover;
+
     margin:10px 0;
+
     border:1px solid var(--cyan);
+
     display:none;
 }
 
 .admin-note{
     color:#888;
+
     font-size:18px;
+
     margin-bottom:15px;
 }
 
 footer{
     text-align:center;
+
     padding:35px;
+
     margin-top:50px;
+
     border-top:1px solid var(--pink);
+
     color:#777;
+
     font-size:19px;
 }
 
 hr{
     border-color:#382044;
+
     margin:20px 0;
 }
 
 @media(max-width:700px){
+
     header{
         flex-direction:column;
     }
@@ -471,11 +690,13 @@ hr{
 
     .nav{
         width:100%;
+
         justify-content:center;
     }
 }
 </style>
 </head>
+
 
 <body>
 
@@ -487,37 +708,62 @@ hr{
 
     <div class="nav">
 
-        <button class="btn" onclick="openCart()">
-            🛒 <span id="cartCount">0</span>
+        <button
+            class="btn"
+            onclick="openCart()">
+
+            🛒
+            <span id="cartCount">0</span>
+
         </button>
 
-        <button class="btn" onclick="openAdmin()">
+
+        <button
+            class="btn"
+            onclick="openAdmin()">
+
             ⚙ ADMIN
+
         </button>
 
-        <button id="accountButton"
-                class="btn pink"
-                onclick="openAccount()">
+
+        <button
+            id="accountButton"
+            class="btn pink"
+            onclick="openAccount()">
+
             👤 INICIAR SESIÓN
+
         </button>
 
     </div>
 
 </header>
 
+
 <section class="hero">
 
-    <h1>NEONBYTE SHADY</h1>
+    <h1>
+        NEONBYTE SHADY
+    </h1>
 
-    <p>JUEGOS DIGITALES // 198X</p>
+    <p>
+        JUEGOS DIGITALES // 198X
+    </p>
 
-    <small>INSERT COIN • SELECT GAME • ENTER</small>
+    <small>
+        INSERT COIN • SELECT GAME • ENTER
+    </small>
 
 </section>
 
+
 <main class="store">
 
-    <h2 class="title">/// CATÁLOGO</h2>
+    <h2 class="title">
+        /// CATÁLOGO
+    </h2>
+
 
     <div class="controls">
 
@@ -528,34 +774,62 @@ hr{
             oninput="renderGames()"
         >
 
-        <select id="filter"
-                onchange="renderGames()">
 
-            <option value="ALL">TODOS</option>
-            <option value="STEAM">STEAM</option>
+        <select
+            id="filter"
+            onchange="renderGames()">
+
+            <option value="ALL">
+                TODOS
+            </option>
+
+            <option value="STEAM">
+                STEAM
+            </option>
 
         </select>
 
     </div>
 
-    <div id="games" class="games"></div>
+
+    <div
+        id="games"
+        class="games">
+    </div>
 
 </main>
 
+
 <footer>
+
     NEONBYTE SHADY © 2026
+
     <br>
+
     DIGITAL GAME STORE
+
 </footer>
 
-<div id="accountModal" class="modal">
+
+
+<!-- =========================
+     CUENTA
+========================= -->
+
+<div
+    id="accountModal"
+    class="modal">
 
     <div class="box">
 
-        <button class="close"
-                onclick="closeModal('accountModal')">
+        <button
+            class="close"
+            onclick="closeModal('accountModal')">
+
             ×
+
         </button>
+
 
         <div id="accountContent"></div>
 
@@ -563,18 +837,34 @@ hr{
 
 </div>
 
-<div id="cartModal" class="modal">
+
+
+<!-- =========================
+     CARRITO
+========================= -->
+
+<div
+    id="cartModal"
+    class="modal">
 
     <div class="box">
 
-        <button class="close"
-                onclick="closeModal('cartModal')">
+        <button
+            class="close"
+            onclick="closeModal('cartModal')">
+
             ×
+
         </button>
 
-        <h2>🛒 MI CARRITO</h2>
+
+        <h2>
+            🛒 MI CARRITO
+        </h2>
+
 
         <div id="cartList"></div>
+
 
         <div class="discount">
 
@@ -583,52 +873,86 @@ hr{
                 placeholder="Código de descuento"
             >
 
-            <button class="btn pink"
-                    onclick="applyDiscount()">
+
+            <button
+                class="btn pink"
+                onclick="applyDiscount()">
+
                 APLICAR
+
             </button>
 
         </div>
 
-        <div id="discountMessage"
-             class="message"></div>
 
-        <div id="cartTotal"
-             class="total">
-            $0
+        <div
+            id="discountMessage"
+            class="message">
         </div>
 
-        <button class="btn full"
-                onclick="startPayment()">
+
+        <div
+            id="cartTotal"
+            class="total">
+
+            $0
+
+        </div>
+
+
+        <button
+            class="btn full"
+            onclick="startPayment()">
+
             💳 CONTINUAR AL PAGO
+
         </button>
 
     </div>
 
 </div>
 
-<div id="adminModal" class="modal">
+
+
+<!-- =========================
+     ADMIN
+========================= -->
+
+<div
+    id="adminModal"
+    class="modal">
 
     <div class="box">
 
-        <button class="close"
-                onclick="closeModal('adminModal')">
+        <button
+            class="close"
+            onclick="closeModal('adminModal')">
+
             ×
+
         </button>
 
-        <h2>⚙ ADMIN SHADY</h2>
+
+        <h2>
+            ⚙ ADMIN SHADY
+        </h2>
+
 
         <p class="admin-note">
+
             Agrega un juego escribiendo su nombre.
-            El sistema intentará encontrar automáticamente
-            su App ID de Steam y su imagen.
+            Para los juegos iniciales usamos
+            las imágenes de la carpeta IMG.
+
         </p>
+
 
         <input
             id="adminName"
             class="input"
             placeholder="Ej: PAYDAY 3"
         >
+
 
         <input
             id="adminPrice"
@@ -638,8 +962,10 @@ hr{
             placeholder="Precio en CLP. Ej: 12000"
         >
 
-        <select id="adminPlatform"
-                class="input">
+
+        <select
+            id="adminPlatform"
+            class="input">
 
             <option value="STEAM">
                 STEAM
@@ -647,33 +973,54 @@ hr{
 
         </select>
 
-        <button class="btn pink full"
-                onclick="searchSteamGame()">
+
+        <button
+            class="btn pink full"
+            onclick="searchSteamGame()">
+
             🔎 BUSCAR JUEGO
+
         </button>
 
-        <img id="steamPreview"
-             class="preview">
 
-        <div id="adminSearchMessage"
-             class="message"></div>
+        <img
+            id="steamPreview"
+            class="preview"
+        >
 
-        <button id="publishButton"
-                class="btn full"
-                style="display:none"
-                onclick="publishGame()">
+
+        <div
+            id="adminSearchMessage"
+            class="message">
+        </div>
+
+
+        <button
+            id="publishButton"
+            class="btn full"
+            style="display:none"
+            onclick="publishGame()">
+
             ➕ PUBLICAR EN CATÁLOGO
+
         </button>
+
 
         <hr>
 
-        <h2>JUEGOS PUBLICADOS</h2>
+
+        <h2>
+            JUEGOS PUBLICADOS
+        </h2>
+
 
         <div id="adminGames"></div>
 
     </div>
 
 </div>
+
+
 
 <script>
 
@@ -685,38 +1032,50 @@ const defaultGames = [
 
     {
         id:1,
+
         name:"PAYDAY 2",
+
         platform:"STEAM",
+
         price:4000,
+
         appid:218620,
 
-        /* IMAGEN LOCAL DE GITHUB */
         image:"img/payday2.jpg"
     },
 
+
     {
         id:2,
+
         name:"PAYDAY 3",
+
         platform:"STEAM",
+
         price:12000,
+
         appid:1272080,
 
-        /* IMAGEN LOCAL DE GITHUB */
         image:"img/payday3.jpg"
     },
 
+
     {
         id:3,
+
         name:"METAL SLUG TACTICS",
+
         platform:"STEAM",
+
         price:5000,
+
         appid:1590760,
 
-        /* IMAGEN LOCAL DE GITHUB */
         image:"img/metal-slug-tactics.jpg"
     }
 
 ];
+
 
 
 /* =========================================================
@@ -725,12 +1084,83 @@ const defaultGames = [
 
 let savedGames =
     JSON.parse(
-        localStorage.getItem("neonbyte_games")
+        localStorage.getItem(
+            "neonbyte_games"
+        )
+    ) || [];
+
+
+
+/*
+   IMPORTANTE:
+
+   Antes el navegador podía tener guardada
+   una versión antigua del catálogo.
+
+   Ahora combinamos lo guardado con los
+   tres juegos oficiales iniciales.
+
+   Los juegos personalizados se mantienen.
+*/
+
+const gamesMap =
+    new Map();
+
+
+
+/*
+   Primero agregamos los juegos guardados.
+*/
+
+savedGames.forEach(game => {
+
+    gamesMap.set(
+        Number(game.id),
+        game
     );
+
+});
+
+
+
+/*
+   Después agregamos los juegos iniciales.
+
+   Esto actualiza automáticamente:
+   nombre
+   precio
+   imagen
+   plataforma
+   App ID
+*/
+
+defaultGames.forEach(game => {
+
+    gamesMap.set(
+        Number(game.id),
+        game
+    );
+
+});
+
 
 
 let games =
-    savedGames || defaultGames;
+    Array.from(
+        gamesMap.values()
+    );
+
+
+
+/*
+   Guardamos el catálogo actualizado.
+*/
+
+localStorage.setItem(
+    "neonbyte_games",
+    JSON.stringify(games)
+);
+
 
 
 /* =========================================================
@@ -739,8 +1169,11 @@ let games =
 
 let cart =
     JSON.parse(
-        localStorage.getItem("neonbyte_cart")
+        localStorage.getItem(
+            "neonbyte_cart"
+        )
     ) || [];
+
 
 
 /* =========================================================
@@ -749,8 +1182,11 @@ let cart =
 
 let user =
     JSON.parse(
-        localStorage.getItem("neonbyte_user")
+        localStorage.getItem(
+            "neonbyte_user"
+        )
     ) || null;
+
 
 
 /* =========================================================
@@ -760,6 +1196,7 @@ let user =
 let discount = 0;
 
 
+
 /* =========================================================
    JUEGO PENDIENTE
 ========================================================= */
@@ -767,17 +1204,21 @@ let discount = 0;
 let pendingGame = null;
 
 
+
 /* =========================================================
-   PRECIO
+   FORMATO PRECIO
 ========================================================= */
 
 function price(value){
 
     return "$" +
         Number(value)
-        .toLocaleString("es-CL");
+        .toLocaleString(
+            "es-CL"
+        );
 
 }
+
 
 
 /* =========================================================
@@ -794,22 +1235,32 @@ function saveGames(){
 }
 
 
+
 /* =========================================================
-   CATÁLOGO
+   RENDER CATÁLOGO
 ========================================================= */
 
 function renderGames(){
 
     const container =
-        document.getElementById("games");
+        document.getElementById(
+            "games"
+        );
+
 
     const search =
-        document.getElementById("search")
+        document.getElementById(
+            "search"
+        )
         .value
-        .toLowerCase();
+        .toLowerCase()
+        .trim();
+
 
     const filter =
-        document.getElementById("filter")
+        document.getElementById(
+            "filter"
+        )
         .value;
 
 
@@ -817,25 +1268,36 @@ function renderGames(){
         games.filter(game => {
 
             const searchOK =
-                game.name
+                String(game.name)
                 .toLowerCase()
                 .includes(search);
+
 
             const filterOK =
                 filter === "ALL" ||
                 game.platform === filter;
 
-            return searchOK && filterOK;
+
+            return (
+                searchOK &&
+                filterOK
+            );
 
         });
+
 
 
     if(result.length === 0){
 
         container.innerHTML = `
-            <div class="message">
-                No se encontraron juegos.
+
+            <div
+                class="message">
+
+                ❌ NO SE ENCONTRARON JUEGOS.
+
             </div>
+
         `;
 
         return;
@@ -843,22 +1305,31 @@ function renderGames(){
     }
 
 
+
     container.innerHTML =
         result.map(game => {
+
 
             const image =
                 game.image
                 ?
-                `<img
+                `
+                <img
                     class="cover"
                     src="${escapeAttribute(game.image)}"
                     alt="${escapeAttribute(game.name)}"
-                    onerror="this.outerHTML='<div class=\\'coverFallback\\'>${escapeHTML(game.name)}</div>'"
-                >`
+                    onerror="showImageFallback(this)"
+                >
+                `
                 :
-                `<div class="coverFallback">
+                `
+                <div class="coverFallback">
+
                     ${escapeHTML(game.name)}
-                </div>`;
+
+                </div>
+                `;
+
 
 
             return `
@@ -867,22 +1338,32 @@ function renderGames(){
 
                     ${image}
 
+
                     <h3>
                         ${escapeHTML(game.name)}
                     </h3>
 
+
                     <div class="platform">
+
                         ${escapeHTML(game.platform)}
+
                     </div>
 
+
                     <div class="price">
+
                         ${price(game.price)}
+
                     </div>
+
 
                     <button
                         class="buy"
-                        onclick="addCart(${game.id})">
+                        onclick="addCart(${Number(game.id)})">
+
                         🛒 COMPRAR
+
                     </button>
 
                 </article>
@@ -892,6 +1373,39 @@ function renderGames(){
         }).join("");
 
 }
+
+
+
+/* =========================================================
+   FALLBACK DE IMAGEN
+========================================================= */
+
+function showImageFallback(image){
+
+    const name =
+        image.alt || "JUEGO";
+
+
+    const fallback =
+        document.createElement(
+            "div"
+        );
+
+
+    fallback.className =
+        "coverFallback";
+
+
+    fallback.textContent =
+        name;
+
+
+    image.replaceWith(
+        fallback
+    );
+
+}
+
 
 
 /* =========================================================
@@ -908,20 +1422,33 @@ function saveCart(){
 }
 
 
+
 function addCart(id){
 
     const game =
         games.find(
-            g => g.id === id
+            g =>
+                Number(g.id) ===
+                Number(id)
         );
 
 
-    if(!game) return;
+    if(!game){
+
+        alert(
+            "No se encontró el juego."
+        );
+
+        return;
+
+    }
 
 
     cart.push(game);
 
+
     saveCart();
+
 
     updateCart();
 
@@ -934,46 +1461,63 @@ function addCart(id){
 }
 
 
+
 function updateCart(){
 
     document.getElementById(
         "cartCount"
-    ).textContent = cart.length;
+    ).textContent =
+        cart.length;
 
 }
+
 
 
 function openCart(){
 
     renderCart();
 
+
     document.getElementById(
         "cartModal"
-    ).style.display = "flex";
+    ).style.display =
+        "flex";
 
 }
+
 
 
 function renderCart(){
 
     const list =
-        document.getElementById("cartList");
+        document.getElementById(
+            "cartList"
+        );
 
 
     if(cart.length === 0){
 
-        list.innerHTML =
-            `<p class="message">
+        list.innerHTML = `
+
+            <p class="message">
+
                 Tu carrito está vacío.
-            </p>`;
+
+            </p>
+
+        `;
+
 
         document.getElementById(
             "cartTotal"
-        ).textContent = "$0";
+        ).textContent =
+            "$0";
+
 
         return;
 
     }
+
 
 
     list.innerHTML =
@@ -983,17 +1527,23 @@ function renderCart(){
                 <div class="cart-item">
 
                     <span>
+
                         ${escapeHTML(game.name)}
+
                     </span>
+
 
                     <span>
 
                         ${price(game.price)}
 
+
                         <button
                             class="remove"
                             onclick="removeCart(${index})">
+
                             ×
+
                         </button>
 
                     </span>
@@ -1009,17 +1559,25 @@ function renderCart(){
 }
 
 
+
 function removeCart(index){
 
-    cart.splice(index,1);
+    cart.splice(
+        index,
+        1
+    );
+
 
     saveCart();
 
+
     updateCart();
+
 
     renderCart();
 
 }
+
 
 
 /* =========================================================
@@ -1029,7 +1587,9 @@ function removeCart(index){
 function applyDiscount(){
 
     const code =
-        document.getElementById("discountCode")
+        document.getElementById(
+            "discountCode"
+        )
         .value
         .trim()
         .toUpperCase();
@@ -1045,23 +1605,28 @@ function applyDiscount(){
 
         discount = .10;
 
+
         message.textContent =
             "✓ 10% DE DESCUENTO APLICADO";
 
     }
 
+
     else if(code === "NEON20"){
 
         discount = .20;
+
 
         message.textContent =
             "✓ 20% DE DESCUENTO APLICADO";
 
     }
 
+
     else{
 
         discount = 0;
+
 
         message.textContent =
             "✕ CÓDIGO NO VÁLIDO";
@@ -1074,12 +1639,14 @@ function applyDiscount(){
 }
 
 
+
 function calculateTotal(){
 
     const subtotal =
         cart.reduce(
             (sum,game) =>
-                sum + Number(game.price),
+                sum +
+                Number(game.price),
             0
         );
 
@@ -1099,6 +1666,7 @@ function calculateTotal(){
 }
 
 
+
 /* =========================================================
    CUENTA
 ========================================================= */
@@ -1113,15 +1681,19 @@ function saveUser(){
 }
 
 
+
 function openAccount(){
 
     renderAccount();
 
+
     document.getElementById(
         "accountModal"
-    ).style.display = "flex";
+    ).style.display =
+        "flex";
 
 }
+
 
 
 function renderAccount(){
@@ -1136,17 +1708,24 @@ function renderAccount(){
 
         area.innerHTML = `
 
-            <h2>👤 NEONBYTE ACCOUNT</h2>
+            <h2>
+                👤 NEONBYTE ACCOUNT
+            </h2>
+
 
             <p class="message">
+
                 Crea tu cuenta o inicia sesión.
+
             </p>
+
 
             <input
                 id="registerName"
                 class="input"
                 placeholder="Nombre"
             >
+
 
             <input
                 id="registerEmail"
@@ -1155,6 +1734,7 @@ function renderAccount(){
                 placeholder="Correo electrónico"
             >
 
+
             <input
                 id="registerPassword"
                 class="input"
@@ -1162,13 +1742,18 @@ function renderAccount(){
                 placeholder="Contraseña"
             >
 
+
             <button
                 class="btn pink full"
                 onclick="register()">
+
                 CREAR CUENTA
+
             </button>
 
+
             <hr>
+
 
             <input
                 id="loginEmail"
@@ -1177,6 +1762,7 @@ function renderAccount(){
                 placeholder="Correo"
             >
 
+
             <input
                 id="loginPassword"
                 class="input"
@@ -1184,11 +1770,15 @@ function renderAccount(){
                 placeholder="Contraseña"
             >
 
+
             <button
                 class="btn full"
                 onclick="login()">
+
                 INICIAR SESIÓN
+
             </button>
+
 
             <p
                 id="accountMessage"
@@ -1202,6 +1792,7 @@ function renderAccount(){
     }
 
 
+
     area.innerHTML = `
 
         <div class="profile-head">
@@ -1209,29 +1800,46 @@ function renderAccount(){
             ${
                 user.image
                 ?
-                `<img
+                `
+                <img
                     src="${escapeAttribute(user.image)}"
                     class="avatar"
-                >`
+                    onerror="this.style.display='none'"
+                >
+                `
                 :
-                `<div class="avatar-placeholder">
+                `
+                <div class="avatar-placeholder">
+
                     👤
-                </div>`
+
+                </div>
+                `
             }
 
+
             <div class="profile-name">
+
                 ${escapeHTML(user.name)}
+
             </div>
 
+
             <div class="profile-email">
+
                 ${escapeHTML(user.email)}
+
             </div>
 
         </div>
 
+
         <h2 style="margin-top:25px">
+
             MI PERFIL
+
         </h2>
+
 
         <input
             id="profileName"
@@ -1240,11 +1848,17 @@ function renderAccount(){
             placeholder="Nombre"
         >
 
+
         <label
             class="btn full"
-            style="display:block;text-align:center;margin-bottom:12px">
+            style="
+                display:block;
+                text-align:center;
+                margin-bottom:12px;
+            ">
 
             🖼️ CAMBIAR IMAGEN
+
 
             <input
                 type="file"
@@ -1255,15 +1869,24 @@ function renderAccount(){
 
         </label>
 
+
         <button
             class="btn full"
             onclick="saveProfile()">
+
             GUARDAR PERFIL
+
         </button>
+
 
         <div class="comment-area">
 
-            <h2>💬 MI COMENTARIO</h2>
+            <h2>
+
+                💬 MI COMENTARIO
+
+            </h2>
+
 
             <textarea
                 id="profileComment"
@@ -1272,19 +1895,25 @@ function renderAccount(){
                 placeholder="Escribe algo sobre ti..."
             >${escapeHTML(user.comment || "")}</textarea>
 
+
             <button
                 class="btn pink full"
                 onclick="saveProfile()">
+
                 GUARDAR COMENTARIO
+
             </button>
 
         </div>
+
 
         <button
             class="btn full"
             style="margin-top:20px"
             onclick="logout()">
+
             🚪 CERRAR SESIÓN
+
         </button>
 
     `;
@@ -1292,25 +1921,35 @@ function renderAccount(){
 }
 
 
+
+/* =========================================================
+   REGISTRO
+========================================================= */
+
 function register(){
 
     const name =
         document.getElementById(
             "registerName"
-        ).value.trim();
+        )
+        .value
+        .trim();
 
 
     const email =
         document.getElementById(
             "registerEmail"
-        ).value.trim()
+        )
+        .value
+        .trim()
         .toLowerCase();
 
 
     const password =
         document.getElementById(
             "registerPassword"
-        ).value;
+        )
+        .value;
 
 
     const message =
@@ -1319,7 +1958,11 @@ function register(){
         );
 
 
-    if(!name || !email || !password){
+    if(
+        !name ||
+        !email ||
+        !password
+    ){
 
         message.textContent =
             "Completa todos los campos.";
@@ -1364,16 +2007,22 @@ function register(){
 
     const account = {
 
-        name,
-        email,
-        password,
+        name:name,
+
+        email:email,
+
+        password:password,
+
         image:"",
+
         comment:""
 
     };
 
 
-    accounts.push(account);
+    accounts.push(
+        account
+    );
 
 
     localStorage.setItem(
@@ -1384,9 +2033,12 @@ function register(){
 
     user = {
 
-        name,
-        email,
+        name:name,
+
+        email:email,
+
         image:"",
+
         comment:""
 
     };
@@ -1394,26 +2046,36 @@ function register(){
 
     saveUser();
 
+
     updateAccountButton();
+
 
     renderAccount();
 
 }
 
 
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
 function login(){
 
     const email =
         document.getElementById(
             "loginEmail"
-        ).value.trim()
+        )
+        .value
+        .trim()
         .toLowerCase();
 
 
     const password =
         document.getElementById(
             "loginPassword"
-        ).value;
+        )
+        .value;
 
 
     const message =
@@ -1451,21 +2113,33 @@ function login(){
     user = {
 
         name:account.name,
+
         email:account.email,
-        image:account.image || "",
-        comment:account.comment || ""
+
+        image:
+            account.image || "",
+
+        comment:
+            account.comment || ""
 
     };
 
 
     saveUser();
 
+
     updateAccountButton();
+
 
     renderAccount();
 
 }
 
+
+
+/* =========================================================
+   CAMBIAR IMAGEN DE PERFIL
+========================================================= */
 
 function changeImage(event){
 
@@ -1473,7 +2147,11 @@ function changeImage(event){
         event.target.files[0];
 
 
-    if(!file) return;
+    if(!file){
+
+        return;
+
+    }
 
 
     if(file.size > 2 * 1024 * 1024){
@@ -1487,26 +2165,54 @@ function changeImage(event){
     }
 
 
+    if(
+        !file.type.startsWith(
+            "image/"
+        )
+    ){
+
+        alert(
+            "Selecciona una imagen válida."
+        );
+
+        return;
+
+    }
+
+
     const reader =
         new FileReader();
 
 
-    reader.onload = function(){
+    reader.onload =
+        function(){
 
-        user.image =
-            reader.result;
-
-        saveUser();
-
-        renderAccount();
-
-    };
+            user.image =
+                reader.result;
 
 
-    reader.readAsDataURL(file);
+            saveUser();
+
+
+            updateAccountButton();
+
+
+            renderAccount();
+
+        };
+
+
+    reader.readAsDataURL(
+        file
+    );
 
 }
 
+
+
+/* =========================================================
+   GUARDAR PERFIL
+========================================================= */
 
 function saveProfile(){
 
@@ -1553,7 +2259,8 @@ function saveProfile(){
     const index =
         accounts.findIndex(
             a =>
-                a.email === user.email
+                a.email ===
+                user.email
         );
 
 
@@ -1562,8 +2269,10 @@ function saveProfile(){
         accounts[index].name =
             user.name;
 
+
         accounts[index].image =
             user.image;
+
 
         accounts[index].comment =
             user.comment;
@@ -1579,25 +2288,39 @@ function saveProfile(){
 
     updateAccountButton();
 
+
     renderAccount();
 
 }
 
+
+
+/* =========================================================
+   CERRAR SESIÓN
+========================================================= */
 
 function logout(){
 
     user = null;
 
+
     localStorage.removeItem(
         "neonbyte_user"
     );
 
+
     updateAccountButton();
+
 
     renderAccount();
 
 }
 
+
+
+/* =========================================================
+   BOTÓN DE CUENTA
+========================================================= */
 
 function updateAccountButton(){
 
@@ -1610,7 +2333,8 @@ function updateAccountButton(){
     if(user){
 
         button.textContent =
-            "👤 " + user.name;
+            "👤 " +
+            user.name;
 
     }
 
@@ -1624,6 +2348,7 @@ function updateAccountButton(){
 }
 
 
+
 /* =========================================================
    ADMIN
 ========================================================= */
@@ -1632,29 +2357,40 @@ function openAdmin(){
 
     renderAdminGames();
 
+
     document.getElementById(
         "adminModal"
-    ).style.display = "flex";
+    ).style.display =
+        "flex";
 
 }
 
 
+
+/* =========================================================
+   STEAM APP IDS
+========================================================= */
+
 const steamKnownGames = {
 
     "payday 2":218620,
+
     "payday2":218620,
 
     "payday 3":1272080,
+
     "payday3":1272080,
 
     "metal slug tactics":1590760,
+
     "metalslugtactics":1590760
 
 };
 
 
+
 /* =========================================================
-   BUSCAR STEAM
+   BUSCAR JUEGO
 ========================================================= */
 
 async function searchSteamGame(){
@@ -1662,13 +2398,16 @@ async function searchSteamGame(){
     const name =
         document.getElementById(
             "adminName"
-        ).value.trim();
+        )
+        .value
+        .trim();
 
 
     const priceValue =
         document.getElementById(
             "adminPrice"
-        ).value;
+        )
+        .value;
 
 
     const message =
@@ -1716,6 +2455,7 @@ async function searchSteamGame(){
     preview.style.display =
         "none";
 
+
     publishButton.style.display =
         "none";
 
@@ -1729,6 +2469,7 @@ async function searchSteamGame(){
 
     let appid =
         steamKnownGames[key];
+
 
 
     if(!appid){
@@ -1763,6 +2504,7 @@ async function searchSteamGame(){
             }
 
         }
+
         catch(error){
 
             console.log(
@@ -1775,6 +2517,7 @@ async function searchSteamGame(){
     }
 
 
+
     if(!appid){
 
         message.textContent =
@@ -1785,42 +2528,19 @@ async function searchSteamGame(){
     }
 
 
-    let image =
+
+    const image =
         `https://cdn.akamai.steamstatic.com/steam/apps/${appid}/header.jpg`;
 
-
-    /*
-       Usar imágenes locales para los
-       tres juegos que ya subiste.
-    */
-
-    if(appid === 218620){
-
-        image =
-            "img/payday2.jpg";
-
-    }
-
-    else if(appid === 1272080){
-
-        image =
-            "img/payday3.jpg";
-
-    }
-
-    else if(appid === 1590760){
-
-        image =
-            "img/metal-slug-tactics.jpg";
-
-    }
 
 
     pendingGame = {
 
         name:name,
 
-        price:Number(priceValue),
+        price:Number(
+            priceValue
+        ),
 
         platform:"STEAM",
 
@@ -1831,37 +2551,48 @@ async function searchSteamGame(){
     };
 
 
+
     preview.src =
         image;
 
 
-    preview.onload = function(){
 
-        preview.style.display =
-            "block";
+    preview.onload =
+        function(){
 
-        message.textContent =
-            "✓ Juego encontrado. App ID: " +
-            appid;
-
-        publishButton.style.display =
-            "block";
-
-    };
+            preview.style.display =
+                "block";
 
 
-    preview.onerror = function(){
+            message.textContent =
+                "✓ Juego encontrado. App ID: " +
+                appid;
 
-        message.textContent =
-            "El juego fue encontrado, pero no se pudo cargar la imagen.";
 
-    };
+            publishButton.style.display =
+                "block";
+
+        };
+
+
+
+    preview.onerror =
+        function(){
+
+            message.textContent =
+                "✓ Juego encontrado, pero no se pudo cargar la imagen.";
+
+            publishButton.style.display =
+                "block";
+
+        };
 
 }
 
 
+
 /* =========================================================
-   PUBLICAR
+   PUBLICAR JUEGO
 ========================================================= */
 
 function publishGame(){
@@ -1882,7 +2613,8 @@ function publishGame(){
         ?
         Math.max(
             ...games.map(
-                game => Number(game.id)
+                game =>
+                    Number(game.id)
             )
         ) + 1
         :
@@ -1912,11 +2644,16 @@ function publishGame(){
     };
 
 
-    games.push(game);
+    games.push(
+        game
+    );
+
 
     saveGames();
 
+
     renderGames();
+
 
     renderAdminGames();
 
@@ -1938,8 +2675,9 @@ function publishGame(){
 }
 
 
+
 /* =========================================================
-   ADMIN
+   LISTA ADMIN
 ========================================================= */
 
 function renderAdminGames(){
@@ -1951,43 +2689,58 @@ function renderAdminGames(){
 
 
     area.innerHTML =
-        games.map(game => `
+        games.map(
+            game => `
 
-            <div class="admin-game">
+                <div class="admin-game">
 
-                <img
-                    src="${escapeAttribute(game.image || "")}"
-                    onerror="this.style.visibility='hidden'"
-                >
+                    <img
+                        src="${escapeAttribute(game.image || "")}"
+                        alt="${escapeAttribute(game.name)}"
+                        onerror="this.style.visibility='hidden'"
+                    >
 
-                <div>
 
-                    <strong>
-                        ${escapeHTML(game.name)}
-                    </strong>
+                    <div>
 
-                    <br>
+                        <strong>
 
-                    <span>
-                        ${price(game.price)}
-                    </span>
+                            ${escapeHTML(game.name)}
 
-                    <br>
+                        </strong>
 
-                    <button
-                        class="btn pink"
-                        style="margin-top:5px"
-                        onclick="deleteGame(${game.id})">
-                        ELIMINAR
-                    </button>
+
+                        <br>
+
+
+                        <span>
+
+                            ${price(game.price)}
+
+                        </span>
+
+
+                        <br>
+
+
+                        <button
+                            class="btn pink"
+                            style="margin-top:5px"
+                            onclick="deleteGame(${Number(game.id)})">
+
+                            ELIMINAR
+
+                        </button>
+
+                    </div>
 
                 </div>
 
-            </div>
-
-        `).join("");
+            `
+        ).join("");
 
 }
+
 
 
 function deleteGame(id){
@@ -2006,21 +2759,25 @@ function deleteGame(id){
     games =
         games.filter(
             game =>
-                game.id !== id
+                Number(game.id) !==
+                Number(id)
         );
 
 
     saveGames();
 
+
     renderGames();
+
 
     renderAdminGames();
 
 }
 
 
+
 /* =========================================================
-   PAGOS
+   PAGO
 ========================================================= */
 
 function startPayment(){
@@ -2042,9 +2799,14 @@ function startPayment(){
             "Debes iniciar sesión antes de comprar."
         );
 
-        closeModal("cartModal");
+
+        closeModal(
+            "cartModal"
+        );
+
 
         openAccount();
+
 
         return;
 
@@ -2052,18 +2814,26 @@ function startPayment(){
 
 
     /*
-       TODAVÍA NO CONECTADO A MERCADO PAGO.
+       IMPORTANTE:
 
-       El Access Token NO debe ir aquí.
-       Para el pago real necesitaremos
-       un backend.
+       Aquí todavía NO hacemos un cobro real.
+
+       Mercado Pago necesita un backend seguro
+       para crear la preferencia de pago.
+
+       El Access Token NO debe estar en
+       index.html ni en GitHub.
     */
 
+
     alert(
-        "Mercado Pago se conectará en la siguiente etapa."
+        "El carrito está listo para el pago. " +
+        "La conexión real con Mercado Pago se agregará " +
+        "en el backend."
     );
 
 }
+
 
 
 /* =========================================================
@@ -2078,6 +2848,7 @@ function closeModal(id){
         "none";
 
 }
+
 
 
 window.onclick =
@@ -2096,6 +2867,7 @@ function(event){
 };
 
 
+
 /* =========================================================
    SEGURIDAD HTML
 ========================================================= */
@@ -2103,20 +2875,44 @@ function(event){
 function escapeHTML(value){
 
     return String(value)
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#039;");
+
+        .replaceAll(
+            "&",
+            "&amp;"
+        )
+
+        .replaceAll(
+            "<",
+            "&lt;"
+        )
+
+        .replaceAll(
+            ">",
+            "&gt;"
+        )
+
+        .replaceAll(
+            '"',
+            "&quot;"
+        )
+
+        .replaceAll(
+            "'",
+            "&#039;"
+        );
 
 }
+
 
 
 function escapeAttribute(value){
 
-    return escapeHTML(value);
+    return escapeHTML(
+        value
+    );
 
 }
+
 
 
 /* =========================================================
@@ -2133,3 +2929,4 @@ updateAccountButton();
 
 </body>
 </html>
+```
