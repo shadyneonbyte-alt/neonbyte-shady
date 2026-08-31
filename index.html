@@ -1,1 +1,2054 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NEONBYTE SHADY</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+:root{
+    --pink:#ff29d9;
+    --cyan:#00f6ff;
+    --purple:#7b2cff;
+    --dark:#090014;
+    --panel:#120020;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    min-height:100vh;
+    color:white;
+    font-family:'VT323',monospace;
+
+    background:
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px),
+        radial-gradient(circle at 50% 20%,#26004d,#090014 65%);
+
+    background-size:35px 35px;
+}
+
+body:after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:9999;
+
+    background:repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 3px,
+        rgba(255,255,255,.025) 4px
+    );
+}
+
+/* HEADER */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:500;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+
+    padding:20px 6%;
+
+    background:rgba(8,0,20,.97);
+
+    border-bottom:2px solid var(--pink);
+
+    box-shadow:0 0 20px rgba(255,41,217,.25);
+}
+
+.logo{
+    font-family:'Press Start 2P';
+    font-size:19px;
+
+    color:var(--cyan);
+
+    text-shadow:
+        3px 3px 0 var(--pink),
+        0 0 15px var(--cyan);
+}
+
+.logo span{
+    color:var(--pink);
+}
+
+.nav{
+    display:flex;
+    gap:8px;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.btn{
+    border:1px solid var(--cyan);
+
+    background:transparent;
+
+    color:var(--cyan);
+
+    padding:10px 14px;
+
+    font-family:'VT323';
+    font-size:21px;
+
+    cursor:pointer;
+}
+
+.btn:hover{
+    background:var(--cyan);
+    color:#090014;
+
+    box-shadow:0 0 18px var(--cyan);
+}
+
+.btn.pink{
+    border-color:var(--pink);
+    color:var(--pink);
+}
+
+.btn.pink:hover{
+    background:var(--pink);
+    color:white;
+
+    box-shadow:0 0 18px var(--pink);
+}
+
+/* HERO */
+
+.hero{
+    min-height:410px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:60px 20px;
+
+    background:
+        radial-gradient(
+            circle at 50% 80%,
+            rgba(255,20,147,.3),
+            transparent 40%
+        ),
+        linear-gradient(180deg,#17002e,#090014);
+}
+
+.hero h1{
+    font-family:'Press Start 2P';
+
+    font-size:clamp(25px,6vw,65px);
+
+    line-height:1.5;
+
+    text-shadow:
+        5px 5px 0 var(--pink),
+        0 0 30px var(--cyan);
+}
+
+.hero p{
+    color:var(--cyan);
+
+    font-size:28px;
+
+    margin-top:20px;
+
+    letter-spacing:2px;
+}
+
+.hero small{
+    color:var(--pink);
+
+    font-size:22px;
+
+    margin-top:15px;
+}
+
+/* STORE */
+
+.store{
+    max-width:1250px;
+
+    margin:auto;
+
+    padding:45px 20px;
+}
+
+.title{
+    font-family:'Press Start 2P';
+
+    color:var(--cyan);
+
+    font-size:20px;
+
+    margin-bottom:25px;
+
+    text-shadow:0 0 15px var(--cyan);
+}
+
+.controls{
+    display:flex;
+
+    gap:10px;
+
+    margin-bottom:30px;
+
+    flex-wrap:wrap;
+}
+
+.search{
+    flex:1;
+
+    min-width:230px;
+
+    padding:13px;
+
+    background:#0c0017;
+
+    border:1px solid var(--pink);
+
+    color:white;
+
+    font-family:'VT323';
+
+    font-size:22px;
+
+    outline:none;
+}
+
+.search:focus{
+    box-shadow:0 0 15px var(--pink);
+}
+
+select{
+    padding:10px 15px;
+
+    background:#0c0017;
+
+    border:1px solid var(--cyan);
+
+    color:var(--cyan);
+
+    font-family:'VT323';
+
+    font-size:21px;
+}
+
+/* GAMES */
+
+.games{
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(260px,1fr));
+
+    gap:22px;
+}
+
+.card{
+    background:
+        linear-gradient(145deg,#19002e,#0c0018);
+
+    border:1px solid var(--pink);
+
+    padding:15px;
+
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-7px);
+
+    border-color:var(--cyan);
+
+    box-shadow:
+        0 0 20px rgba(0,246,255,.3);
+}
+
+.cover{
+    width:100%;
+
+    height:190px;
+
+    object-fit:cover;
+
+    display:block;
+
+    border:1px solid #482058;
+
+    background:#13001e;
+}
+
+.coverFallback{
+    height:190px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:15px;
+
+    background:
+        radial-gradient(
+            circle,
+            #4b137b,
+            #13001e 70%
+        );
+
+    border:1px solid #482058;
+
+    color:var(--pink);
+
+    font-family:'Press Start 2P';
+
+    font-size:15px;
+
+    line-height:1.7;
+}
+
+.card h3{
+    margin-top:15px;
+
+    font-size:28px;
+}
+
+.platform{
+    color:#888;
+
+    font-size:19px;
+}
+
+.description{
+    color:#bbb;
+
+    font-size:18px;
+
+    line-height:1.2;
+
+    margin-top:8px;
+
+    min-height:44px;
+}
+
+.price{
+    color:var(--cyan);
+
+    font-size:31px;
+
+    margin:8px 0 12px;
+
+    text-shadow:0 0 8px var(--cyan);
+}
+
+.buy{
+    width:100%;
+
+    padding:12px;
+
+    background:var(--pink);
+
+    border:none;
+
+    color:white;
+
+    font-family:'VT323';
+
+    font-size:24px;
+
+    cursor:pointer;
+}
+
+.buy:hover{
+    background:var(--cyan);
+
+    color:#090014;
+}
+
+/* MODAL */
+
+.modal{
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.85);
+
+    z-index:2000;
+
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+}
+
+.box{
+    width:100%;
+
+    max-width:600px;
+
+    max-height:90vh;
+
+    overflow:auto;
+
+    background:#10001d;
+
+    border:2px solid var(--cyan);
+
+    padding:25px;
+
+    box-shadow:
+        0 0 40px rgba(0,246,255,.25);
+}
+
+.box h2{
+    font-family:'Press Start 2P';
+
+    font-size:18px;
+
+    color:var(--cyan);
+
+    margin-bottom:20px;
+}
+
+.close{
+    float:right;
+
+    border:0;
+
+    background:none;
+
+    color:var(--pink);
+
+    font-size:32px;
+
+    cursor:pointer;
+}
+
+.input{
+    width:100%;
+
+    padding:13px;
+
+    margin-bottom:12px;
+
+    background:#050008;
+
+    border:1px solid var(--pink);
+
+    color:white;
+
+    font-family:'VT323';
+
+    font-size:21px;
+}
+
+textarea.input{
+    resize:vertical;
+}
+
+.full{
+    width:100%;
+}
+
+/* PROFILE */
+
+.profile-head{
+    text-align:center;
+
+    padding-bottom:20px;
+
+    border-bottom:1px solid #382044;
+}
+
+.avatar{
+    width:130px;
+    height:130px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:3px solid var(--cyan);
+
+    box-shadow:
+        0 0 25px rgba(0,246,255,.4);
+}
+
+.avatar-placeholder{
+    width:130px;
+    height:130px;
+
+    border-radius:50%;
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:#160029;
+
+    border:3px solid var(--cyan);
+
+    font-size:60px;
+}
+
+.profile-name{
+    color:var(--pink);
+
+    font-size:32px;
+
+    margin:10px;
+}
+
+.profile-email{
+    color:#888;
+
+    font-size:19px;
+}
+
+.comment-area{
+    margin-top:20px;
+}
+
+/* CART */
+
+.cart-item{
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+    padding:12px 0;
+
+    border-bottom:1px solid #35203d;
+
+    font-size:21px;
+}
+
+.remove{
+    background:none;
+
+    border:0;
+
+    color:var(--pink);
+
+    cursor:pointer;
+
+    font-size:22px;
+}
+
+.discount{
+    display:flex;
+
+    gap:5px;
+
+    margin:18px 0;
+}
+
+.discount input{
+    flex:1;
+
+    padding:10px;
+
+    background:#050008;
+
+    border:1px solid var(--pink);
+
+    color:white;
+
+    font-family:'VT323';
+
+    font-size:20px;
+}
+
+.total{
+    text-align:right;
+
+    color:var(--cyan);
+
+    font-size:30px;
+
+    margin:15px 0;
+}
+
+.message{
+    margin:10px 0;
+
+    color:var(--cyan);
+
+    font-size:19px;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+
+    padding:35px;
+
+    margin-top:50px;
+
+    border-top:1px solid var(--pink);
+
+    color:#777;
+
+    font-size:19px;
+}
+
+hr{
+    border-color:#382044;
+
+    margin:20px 0;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    header{
+        flex-direction:column;
+    }
+
+    .logo{
+        font-size:14px;
+    }
+
+    .hero h1{
+        font-size:24px;
+    }
+
+    .hero p{
+        font-size:21px;
+    }
+
+    .nav{
+        width:100%;
+
+        justify-content:center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        NEONBYTE <span>SHADY</span>
+    </div>
+
+    <div class="nav">
+
+        <button
+            class="btn"
+            onclick="openCart()">
+
+            🛒
+            <span id="cartCount">0</span>
+
+        </button>
+
+        <button
+            id="accountButton"
+            class="btn pink"
+            onclick="openAccount()">
+
+            👤 INICIAR SESIÓN
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<section class="hero">
+
+    <h1>
+        NEONBYTE SHADY
+    </h1>
+
+    <p>
+        JUEGOS DIGITALES // 198X
+    </p>
+
+    <small>
+        INSERT COIN • SELECT GAME • ENTER
+    </small>
+
+</section>
+
+
+<main class="store">
+
+    <h2 class="title">
+        /// CATÁLOGO
+    </h2>
+
+    <div class="controls">
+
+        <input
+            id="search"
+            class="search"
+            placeholder="Buscar juego..."
+            oninput="renderGames()"
+        >
+
+        <select
+            id="filter"
+            onchange="renderGames()">
+
+            <option value="ALL">
+                TODOS
+            </option>
+
+            <option value="STEAM">
+                STEAM
+            </option>
+
+        </select>
+
+    </div>
+
+    <div
+        id="games"
+        class="games">
+    </div>
+
+</main>
+
+
+<footer>
+
+    NEONBYTE SHADY © 2026
+
+    <br>
+
+    DIGITAL GAME STORE
+
+</footer>
+
+
+<!-- CUENTA -->
+
+<div
+    id="accountModal"
+    class="modal">
+
+    <div class="box">
+
+        <button
+            class="close"
+            onclick="closeModal('accountModal')">
+
+            ×
+
+        </button>
+
+        <div
+            id="accountContent">
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- CARRITO -->
+
+<div
+    id="cartModal"
+    class="modal">
+
+    <div class="box">
+
+        <button
+            class="close"
+            onclick="closeModal('cartModal')">
+
+            ×
+
+        </button>
+
+        <h2>
+            🛒 MI CARRITO
+        </h2>
+
+        <div id="cartList"></div>
+
+        <div class="discount">
+
+            <input
+                id="discountCode"
+                placeholder="Código de descuento"
+            >
+
+            <button
+                class="btn pink"
+                onclick="applyDiscount()">
+
+                APLICAR
+
+            </button>
+
+        </div>
+
+        <div
+            id="discountMessage"
+            class="message">
+        </div>
+
+        <div
+            id="cartTotal"
+            class="total">
+
+            $0
+
+        </div>
+
+        <button
+            class="btn full"
+            onclick="startPayment()">
+
+            💳 CONTINUAR AL PAGO
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   CATÁLOGO
+===================================================== */
+
+const defaultGames = [
+
+    {
+        id:1,
+
+        name:"PAYDAY 2",
+
+        platform:"STEAM",
+
+        price:4000,
+
+        appid:218620,
+
+        image:"img/payday2.jpg",
+
+        description:
+        "Cooperativo de acción donde formas un equipo de criminales y realizas diferentes atracos."
+    },
+
+    {
+        id:2,
+
+        name:"PAYDAY 3",
+
+        platform:"STEAM",
+
+        price:12000,
+
+        appid:1272080,
+
+        image:"img/payday3.jpg",
+
+        description:
+        "Shooter cooperativo de atracos. Forma tu banda y completa grandes golpes junto a tus amigos."
+    },
+
+    {
+        id:3,
+
+        name:"METAL SLUG TACTICS",
+
+        platform:"STEAM",
+
+        price:5000,
+
+        appid:1590760,
+
+        image:"img/metal-slug-tactics.jpg",
+
+        description:
+        "Combina la acción clásica de Metal Slug con estrategia táctica por turnos."
+    }
+
+];
+
+
+/* =====================================================
+   JUEGOS
+===================================================== */
+
+let savedGames =
+    JSON.parse(
+        localStorage.getItem(
+            "neonbyte_games"
+        )
+    );
+
+
+let games =
+    savedGames || defaultGames;
+
+
+/*
+   Si había una versión antigua guardada,
+   aseguramos que los tres juegos existan.
+*/
+
+function ensureDefaultGames(){
+
+    defaultGames.forEach(defaultGame => {
+
+        const existing =
+            games.find(
+                game =>
+                    Number(game.id) ===
+                    Number(defaultGame.id)
+            );
+
+        if(!existing){
+
+            games.push(defaultGame);
+
+        }
+
+    });
+
+    saveGames();
+
+}
+
+function saveGames(){
+
+    localStorage.setItem(
+        "neonbyte_games",
+        JSON.stringify(games)
+    );
+
+}
+
+ensureDefaultGames();
+
+
+/* =====================================================
+   CARRITO
+===================================================== */
+
+let cart =
+    JSON.parse(
+        localStorage.getItem(
+            "neonbyte_cart"
+        )
+    ) || [];
+
+
+function saveCart(){
+
+    localStorage.setItem(
+        "neonbyte_cart",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+function addCart(id){
+
+    const game =
+        games.find(
+            g =>
+                Number(g.id) ===
+                Number(id)
+        );
+
+    if(!game){
+
+        return;
+
+    }
+
+    cart.push(game);
+
+    saveCart();
+
+    updateCart();
+
+    alert(
+        game.name +
+        " fue agregado al carrito."
+    );
+
+}
+
+
+function updateCart(){
+
+    document.getElementById(
+        "cartCount"
+    ).textContent =
+        cart.length;
+
+}
+
+
+function openCart(){
+
+    renderCart();
+
+    document.getElementById(
+        "cartModal"
+    ).style.display =
+        "flex";
+
+}
+
+
+function renderCart(){
+
+    const list =
+        document.getElementById(
+            "cartList"
+        );
+
+    if(cart.length === 0){
+
+        list.innerHTML =
+            `<p class="message">
+                Tu carrito está vacío.
+            </p>`;
+
+        document.getElementById(
+            "cartTotal"
+        ).textContent =
+            "$0";
+
+        return;
+
+    }
+
+    list.innerHTML =
+        cart.map(
+            (game,index) => `
+
+                <div class="cart-item">
+
+                    <span>
+                        ${escapeHTML(game.name)}
+                    </span>
+
+                    <span>
+
+                        ${price(game.price)}
+
+                        <button
+                            class="remove"
+                            onclick="removeCart(${index})">
+
+                            ×
+
+                        </button>
+
+                    </span>
+
+                </div>
+
+            `
+        ).join("");
+
+    calculateTotal();
+
+}
+
+
+function removeCart(index){
+
+    cart.splice(index,1);
+
+    saveCart();
+
+    updateCart();
+
+    renderCart();
+
+}
+
+
+/* =====================================================
+   DESCUENTOS
+===================================================== */
+
+let discount = 0;
+
+
+function applyDiscount(){
+
+    const code =
+        document.getElementById(
+            "discountCode"
+        ).value
+        .trim()
+        .toUpperCase();
+
+    const message =
+        document.getElementById(
+            "discountMessage"
+        );
+
+    if(code === "SHADY10"){
+
+        discount = 0.10;
+
+        message.textContent =
+            "✓ 10% DE DESCUENTO APLICADO";
+
+    }
+
+    else if(code === "NEON20"){
+
+        discount = 0.20;
+
+        message.textContent =
+            "✓ 20% DE DESCUENTO APLICADO";
+
+    }
+
+    else{
+
+        discount = 0;
+
+        message.textContent =
+            "✕ CÓDIGO NO VÁLIDO";
+
+    }
+
+    calculateTotal();
+
+}
+
+
+function calculateTotal(){
+
+    const subtotal =
+        cart.reduce(
+            (sum,game) =>
+                sum +
+                Number(game.price),
+            0
+        );
+
+    const total =
+        Math.round(
+            subtotal -
+            subtotal * discount
+        );
+
+    document.getElementById(
+        "cartTotal"
+    ).textContent =
+        price(total);
+
+}
+
+
+/* =====================================================
+   CUENTAS
+===================================================== */
+
+let user =
+    JSON.parse(
+        localStorage.getItem(
+            "neonbyte_user"
+        )
+    ) || null;
+
+
+function saveUser(){
+
+    localStorage.setItem(
+        "neonbyte_user",
+        JSON.stringify(user)
+    );
+
+}
+
+
+function openAccount(){
+
+    renderAccount();
+
+    document.getElementById(
+        "accountModal"
+    ).style.display =
+        "flex";
+
+}
+
+
+function renderAccount(){
+
+    const area =
+        document.getElementById(
+            "accountContent"
+        );
+
+
+    if(!user){
+
+        area.innerHTML = `
+
+            <h2>
+                👤 NEONBYTE ACCOUNT
+            </h2>
+
+            <p class="message">
+                Crea tu cuenta o inicia sesión.
+            </p>
+
+            <input
+                id="registerName"
+                class="input"
+                placeholder="Nombre"
+            >
+
+            <input
+                id="registerEmail"
+                class="input"
+                type="email"
+                placeholder="Correo electrónico"
+            >
+
+            <input
+                id="registerPassword"
+                class="input"
+                type="password"
+                placeholder="Contraseña"
+            >
+
+            <button
+                class="btn pink full"
+                onclick="register()">
+
+                CREAR CUENTA
+
+            </button>
+
+            <hr>
+
+            <input
+                id="loginEmail"
+                class="input"
+                type="email"
+                placeholder="Correo"
+            >
+
+            <input
+                id="loginPassword"
+                class="input"
+                type="password"
+                placeholder="Contraseña"
+            >
+
+            <button
+                class="btn full"
+                onclick="login()">
+
+                INICIAR SESIÓN
+
+            </button>
+
+            <p
+                id="accountMessage"
+                class="message">
+            </p>
+
+        `;
+
+        return;
+
+    }
+
+
+    area.innerHTML = `
+
+        <div class="profile-head">
+
+            ${
+                user.image
+                ?
+                `<img
+                    src="${escapeAttribute(user.image)}"
+                    class="avatar"
+                    alt="Avatar"
+                >`
+                :
+                `<div class="avatar-placeholder">
+                    👤
+                </div>`
+            }
+
+            <div class="profile-name">
+
+                ${escapeHTML(user.name)}
+
+            </div>
+
+            <div class="profile-email">
+
+                ${escapeHTML(user.email)}
+
+            </div>
+
+        </div>
+
+        <h2 style="margin-top:25px">
+
+            MI PERFIL
+
+        </h2>
+
+        <input
+            id="profileName"
+            class="input"
+            value="${escapeAttribute(user.name)}"
+            placeholder="Nombre"
+        >
+
+        <label
+            class="btn full"
+            style="
+                display:block;
+                text-align:center;
+                margin-bottom:12px;
+            ">
+
+            🖼️ CAMBIAR IMAGEN
+
+            <input
+                type="file"
+                accept="image/*"
+                style="display:none"
+                onchange="changeImage(event)"
+            >
+
+        </label>
+
+        <textarea
+            id="profileComment"
+            class="input"
+            rows="4"
+            placeholder="Escribe algo sobre ti..."
+        >${escapeHTML(user.comment || "")}</textarea>
+
+        <button
+            class="btn pink full"
+            onclick="saveProfile()">
+
+            GUARDAR PERFIL
+
+        </button>
+
+        <button
+            class="btn full"
+            style="margin-top:20px"
+            onclick="logout()">
+
+            🚪 CERRAR SESIÓN
+
+        </button>
+
+    `;
+
+}
+
+
+function register(){
+
+    const name =
+        document.getElementById(
+            "registerName"
+        ).value.trim();
+
+    const email =
+        document.getElementById(
+            "registerEmail"
+        ).value.trim()
+        .toLowerCase();
+
+    const password =
+        document.getElementById(
+            "registerPassword"
+        ).value;
+
+    const message =
+        document.getElementById(
+            "accountMessage"
+        );
+
+
+    if(
+        !name ||
+        !email ||
+        !password
+    ){
+
+        message.textContent =
+            "Completa todos los campos.";
+
+        return;
+
+    }
+
+
+    if(password.length < 6){
+
+        message.textContent =
+            "La contraseña debe tener al menos 6 caracteres.";
+
+        return;
+
+    }
+
+
+    const accounts =
+        JSON.parse(
+            localStorage.getItem(
+                "neonbyte_accounts"
+            )
+        ) || [];
+
+
+    if(
+        accounts.some(
+            account =>
+                account.email === email
+        )
+    ){
+
+        message.textContent =
+            "Ese correo ya está registrado.";
+
+        return;
+
+    }
+
+
+    const account = {
+
+        name:name,
+
+        email:email,
+
+        password:password,
+
+        image:"",
+
+        comment:""
+
+    };
+
+
+    accounts.push(account);
+
+
+    localStorage.setItem(
+        "neonbyte_accounts",
+        JSON.stringify(accounts)
+    );
+
+
+    user = {
+
+        name:name,
+
+        email:email,
+
+        image:"",
+
+        comment:""
+
+    };
+
+
+    saveUser();
+
+    updateAccountButton();
+
+    renderAccount();
+
+}
+
+
+function login(){
+
+    const email =
+        document.getElementById(
+            "loginEmail"
+        ).value.trim()
+        .toLowerCase();
+
+    const password =
+        document.getElementById(
+            "loginPassword"
+        ).value;
+
+    const message =
+        document.getElementById(
+            "accountMessage"
+        );
+
+
+    const accounts =
+        JSON.parse(
+            localStorage.getItem(
+                "neonbyte_accounts"
+            )
+        ) || [];
+
+
+    const account =
+        accounts.find(
+            a =>
+                a.email === email &&
+                a.password === password
+        );
+
+
+    if(!account){
+
+        message.textContent =
+            "Correo o contraseña incorrectos.";
+
+        return;
+
+    }
+
+
+    user = {
+
+        name:account.name,
+
+        email:account.email,
+
+        image:account.image || "",
+
+        comment:account.comment || ""
+
+    };
+
+
+    saveUser();
+
+    updateAccountButton();
+
+    renderAccount();
+
+}
+
+
+function changeImage(event){
+
+    const file =
+        event.target.files[0];
+
+    if(!file){
+
+        return;
+
+    }
+
+
+    if(
+        !file.type.startsWith(
+            "image/"
+        )
+    ){
+
+        alert(
+            "Selecciona una imagen válida."
+        );
+
+        return;
+
+    }
+
+
+    if(
+        file.size >
+        2 * 1024 * 1024
+    ){
+
+        alert(
+            "La imagen debe pesar menos de 2 MB."
+        );
+
+        return;
+
+    }
+
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload =
+        function(){
+
+            user.image =
+                reader.result;
+
+            saveUser();
+
+            renderAccount();
+
+        };
+
+
+    reader.readAsDataURL(file);
+
+}
+
+
+function saveProfile(){
+
+    const name =
+        document.getElementById(
+            "profileName"
+        );
+
+    const comment =
+        document.getElementById(
+            "profileComment"
+        );
+
+
+    if(name){
+
+        user.name =
+            name.value.trim() ||
+            user.name;
+
+    }
+
+
+    if(comment){
+
+        user.comment =
+            comment.value.trim();
+
+    }
+
+
+    saveUser();
+
+
+    const accounts =
+        JSON.parse(
+            localStorage.getItem(
+                "neonbyte_accounts"
+            )
+        ) || [];
+
+
+    const index =
+        accounts.findIndex(
+            a =>
+                a.email === user.email
+        );
+
+
+    if(index !== -1){
+
+        accounts[index].name =
+            user.name;
+
+        accounts[index].image =
+            user.image;
+
+        accounts[index].comment =
+            user.comment;
+
+
+        localStorage.setItem(
+            "neonbyte_accounts",
+            JSON.stringify(accounts)
+        );
+
+    }
+
+
+    updateAccountButton();
+
+    renderAccount();
+
+}
+
+
+function logout(){
+
+    user = null;
+
+    localStorage.removeItem(
+        "neonbyte_user"
+    );
+
+    updateAccountButton();
+
+    renderAccount();
+
+}
+
+
+function updateAccountButton(){
+
+    const button =
+        document.getElementById(
+            "accountButton"
+        );
+
+
+    if(user){
+
+        button.textContent =
+            "👤 " +
+            user.name;
+
+    }
+
+    else{
+
+        button.textContent =
+            "👤 INICIAR SESIÓN";
+
+    }
+
+}
+
+
+/* =====================================================
+   PAGOS
+===================================================== */
+
+function startPayment(){
+
+    if(cart.length === 0){
+
+        alert(
+            "Tu carrito está vacío."
+        );
+
+        return;
+
+    }
+
+
+    if(!user){
+
+        alert(
+            "Debes iniciar sesión antes de comprar."
+        );
+
+        closeModal(
+            "cartModal"
+        );
+
+        openAccount();
+
+        return;
+
+    }
+
+
+    /*
+       AQUÍ irá posteriormente Mercado Pago.
+
+       No colocamos Access Token aquí.
+    */
+
+    alert(
+        "Tu carrito está listo para el pago."
+    );
+
+}
+
+
+/* =====================================================
+   UTILIDADES
+===================================================== */
+
+function price(value){
+
+    return "$" +
+        Number(value)
+        .toLocaleString(
+            "es-CL"
+        );
+
+}
+
+
+function escapeHTML(value){
+
+    return String(value)
+
+        .replaceAll(
+            "&",
+            "&amp;"
+        )
+
+        .replaceAll(
+            "<",
+            "&lt;"
+        )
+
+        .replaceAll(
+            ">",
+            "&gt;"
+        )
+
+        .replaceAll(
+            '"',
+            "&quot;"
+        )
+
+        .replaceAll(
+            "'",
+            "&#039;"
+        );
+
+}
+
+
+function escapeAttribute(value){
+
+    return escapeHTML(value);
+
+}
+
+
+/* =====================================================
+   RENDER JUEGOS
+===================================================== */
+
+function renderGames(){
+
+    const container =
+        document.getElementById(
+            "games"
+        );
+
+
+    const search =
+        document.getElementById(
+            "search"
+        )
+        .value
+        .toLowerCase();
+
+
+    const filter =
+        document.getElementById(
+            "filter"
+        ).value;
+
+
+    const result =
+        games.filter(
+            game => {
+
+                const searchOK =
+                    game.name
+                    .toLowerCase()
+                    .includes(search);
+
+
+                const filterOK =
+                    filter === "ALL" ||
+                    game.platform === filter;
+
+
+                return (
+                    searchOK &&
+                    filterOK
+                );
+
+            }
+        );
+
+
+    if(result.length === 0){
+
+        container.innerHTML = `
+
+            <p class="message">
+
+                No se encontraron juegos.
+
+            </p>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+        result.map(
+            game => {
+
+                const image =
+                    game.image
+                    ?
+                    `
+
+                    <img
+                        class="cover"
+                        src="${escapeAttribute(game.image)}"
+                        alt="${escapeAttribute(game.name)}"
+                        onerror="this.outerHTML='<div class=&quot;coverFallback&quot;>${escapeHTML(game.name)}</div>'"
+                    >
+
+                    `
+                    :
+                    `
+
+                    <div class="coverFallback">
+
+                        ${escapeHTML(game.name)}
+
+                    </div>
+
+                    `;
+
+
+                return `
+
+                    <article class="card">
+
+                        ${image}
+
+                        <h3>
+
+                            ${escapeHTML(game.name)}
+
+                        </h3>
+
+                        <div class="platform">
+
+                            ${escapeHTML(game.platform)}
+
+                        </div>
+
+                        <div class="description">
+
+                            ${escapeHTML(
+                                game.description ||
+                                "Juego digital disponible en NEONBYTE SHADY."
+                            )}
+
+                        </div>
+
+                        <div class="price">
+
+                            ${price(game.price)}
+
+                        </div>
+
+                        <button
+                            class="buy"
+                            onclick="addCart(${game.id})">
+
+                            🛒 COMPRAR
+
+                        </button>
+
+                    </article>
+
+                `;
+
+            }
+        ).join("");
+
+}
+
+
+/* =====================================================
+   MODALES
+===================================================== */
+
+function closeModal(id){
+
+    document.getElementById(
+        id
+    ).style.display =
+        "none";
+
+}
+
+
+window.onclick =
+function(event){
+
+    if(
+        event.target.classList
+        .contains("modal")
+    ){
+
+        event.target.style.display =
+            "none";
+
+    }
+
+};
+
+
+/* =====================================================
+   INICIO
+===================================================== */
+
+renderGames();
+
+updateCart();
+
+updateAccountButton();
+
+</script>
+
+</body>
+</html>
+```
 
