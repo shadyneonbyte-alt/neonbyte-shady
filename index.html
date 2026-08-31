@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -454,7 +453,6 @@ hr{
 }
 
 @media(max-width:700px){
-
     header{
         flex-direction:column;
     }
@@ -507,7 +505,6 @@ hr{
 
 </header>
 
-
 <section class="hero">
 
     <h1>NEONBYTE SHADY</h1>
@@ -517,7 +514,6 @@ hr{
     <small>INSERT COIN • SELECT GAME • ENTER</small>
 
 </section>
-
 
 <main class="store">
 
@@ -535,40 +531,24 @@ hr{
         <select id="filter"
                 onchange="renderGames()">
 
-            <option value="ALL">
-                TODOS
-            </option>
-
-            <option value="STEAM">
-                STEAM
-            </option>
+            <option value="ALL">TODOS</option>
+            <option value="STEAM">STEAM</option>
 
         </select>
 
     </div>
 
-    <div id="games"
-         class="games">
-    </div>
+    <div id="games" class="games"></div>
 
 </main>
 
-
 <footer>
-
     NEONBYTE SHADY © 2026
     <br>
     DIGITAL GAME STORE
-
 </footer>
 
-
-<!-- =========================
-     CUENTA
-========================= -->
-
-<div id="accountModal"
-     class="modal">
+<div id="accountModal" class="modal">
 
     <div class="box">
 
@@ -583,13 +563,7 @@ hr{
 
 </div>
 
-
-<!-- =========================
-     CARRITO
-========================= -->
-
-<div id="cartModal"
-     class="modal">
+<div id="cartModal" class="modal">
 
     <div class="box">
 
@@ -617,8 +591,7 @@ hr{
         </div>
 
         <div id="discountMessage"
-             class="message">
-        </div>
+             class="message"></div>
 
         <div id="cartTotal"
              class="total">
@@ -634,13 +607,7 @@ hr{
 
 </div>
 
-
-<!-- =========================
-     ADMIN
-========================= -->
-
-<div id="adminModal"
-     class="modal">
+<div id="adminModal" class="modal">
 
     <div class="box">
 
@@ -671,9 +638,8 @@ hr{
             placeholder="Precio en CLP. Ej: 12000"
         >
 
-        <select
-            id="adminPlatform"
-            class="input">
+        <select id="adminPlatform"
+                class="input">
 
             <option value="STEAM">
                 STEAM
@@ -681,27 +647,21 @@ hr{
 
         </select>
 
-        <button
-            class="btn pink full"
-            onclick="searchSteamGame()">
+        <button class="btn pink full"
+                onclick="searchSteamGame()">
             🔎 BUSCAR JUEGO
         </button>
 
-        <img
-            id="steamPreview"
-            class="preview"
-        >
+        <img id="steamPreview"
+             class="preview">
 
-        <div
-            id="adminSearchMessage"
-            class="message">
-        </div>
+        <div id="adminSearchMessage"
+             class="message"></div>
 
-        <button
-            id="publishButton"
-            class="btn full"
-            style="display:none"
-            onclick="publishGame()">
+        <button id="publishButton"
+                class="btn full"
+                style="display:none"
+                onclick="publishGame()">
             ➕ PUBLICAR EN CATÁLOGO
         </button>
 
@@ -715,15 +675,10 @@ hr{
 
 </div>
 
-
 <script>
 
 /* =========================================================
    JUEGOS INICIALES
-   Steam App IDs comprobados:
-   PAYDAY 2 = 218620
-   PAYDAY 3 = 1272080
-   Metal Slug Tactics = 1590760
 ========================================================= */
 
 const defaultGames = [
@@ -734,7 +689,9 @@ const defaultGames = [
         platform:"STEAM",
         price:4000,
         appid:218620,
-        image:"https://cdn.akamai.steamstatic.com/steam/apps/218620/header.jpg"
+
+        /* IMAGEN LOCAL DE GITHUB */
+        image:"img/payday2.jpg"
     },
 
     {
@@ -743,7 +700,9 @@ const defaultGames = [
         platform:"STEAM",
         price:12000,
         appid:1272080,
-        image:"https://cdn.akamai.steamstatic.com/steam/apps/1272080/header.jpg"
+
+        /* IMAGEN LOCAL DE GITHUB */
+        image:"img/payday3.jpg"
     },
 
     {
@@ -752,7 +711,9 @@ const defaultGames = [
         platform:"STEAM",
         price:5000,
         appid:1590760,
-        image:"https://cdn.akamai.steamstatic.com/steam/apps/1590760/header.jpg"
+
+        /* IMAGEN LOCAL DE GITHUB */
+        image:"img/metal-slug-tactics.jpg"
     }
 
 ];
@@ -764,9 +725,7 @@ const defaultGames = [
 
 let savedGames =
     JSON.parse(
-        localStorage.getItem(
-            "neonbyte_games"
-        )
+        localStorage.getItem("neonbyte_games")
     );
 
 
@@ -780,9 +739,7 @@ let games =
 
 let cart =
     JSON.parse(
-        localStorage.getItem(
-            "neonbyte_cart"
-        )
+        localStorage.getItem("neonbyte_cart")
     ) || [];
 
 
@@ -792,9 +749,7 @@ let cart =
 
 let user =
     JSON.parse(
-        localStorage.getItem(
-            "neonbyte_user"
-        )
+        localStorage.getItem("neonbyte_user")
     ) || null;
 
 
@@ -806,14 +761,14 @@ let discount = 0;
 
 
 /* =========================================================
-   JUEGO ENCONTRADO
+   JUEGO PENDIENTE
 ========================================================= */
 
 let pendingGame = null;
 
 
 /* =========================================================
-   FORMATO PRECIO
+   PRECIO
 ========================================================= */
 
 function price(value){
@@ -840,7 +795,7 @@ function saveGames(){
 
 
 /* =========================================================
-   RENDER CATÁLOGO
+   CATÁLOGO
 ========================================================= */
 
 function renderGames(){
@@ -873,6 +828,19 @@ function renderGames(){
             return searchOK && filterOK;
 
         });
+
+
+    if(result.length === 0){
+
+        container.innerHTML = `
+            <div class="message">
+                No se encontraron juegos.
+            </div>
+        `;
+
+        return;
+
+    }
 
 
     container.innerHTML =
@@ -989,9 +957,7 @@ function openCart(){
 function renderCart(){
 
     const list =
-        document.getElementById(
-            "cartList"
-        );
+        document.getElementById("cartList");
 
 
     if(cart.length === 0){
@@ -1063,9 +1029,8 @@ function removeCart(index){
 function applyDiscount(){
 
     const code =
-        document.getElementById(
-            "discountCode"
-        ).value
+        document.getElementById("discountCode")
+        .value
         .trim()
         .toUpperCase();
 
@@ -1128,7 +1093,8 @@ function calculateTotal(){
 
     document.getElementById(
         "cartTotal"
-    ).textContent = price(total);
+    ).textContent =
+        price(total);
 
 }
 
@@ -1673,32 +1639,22 @@ function openAdmin(){
 }
 
 
-/*
-   Base de App IDs conocidos.
-
-   Para los tres juegos iniciales
-   ya tenemos sus IDs oficiales de Steam.
-*/
-
 const steamKnownGames = {
 
     "payday 2":218620,
-
     "payday2":218620,
 
     "payday 3":1272080,
-
     "payday3":1272080,
 
     "metal slug tactics":1590760,
-
     "metalslugtactics":1590760
 
 };
 
 
 /* =========================================================
-   BUSCAR JUEGO EN STEAM
+   BUSCAR STEAM
 ========================================================= */
 
 async function searchSteamGame(){
@@ -1775,12 +1731,6 @@ async function searchSteamGame(){
         steamKnownGames[key];
 
 
-    /*
-       Si no está en nuestra lista conocida,
-       intentamos buscarlo usando
-       el endpoint público de búsqueda de Steam.
-    */
-
     if(!appid){
 
         try{
@@ -1802,10 +1752,6 @@ async function searchSteamGame(){
                     Array.isArray(results) &&
                     results.length > 0
                 ){
-
-                    /*
-                       Elegimos el primer resultado.
-                    */
 
                     appid =
                         Number(
@@ -1832,27 +1778,54 @@ async function searchSteamGame(){
     if(!appid){
 
         message.textContent =
-            "❌ No encontré el juego. Puedes agregar una imagen manualmente en una versión posterior.";
+            "❌ No encontré el juego.";
 
         return;
 
     }
 
 
+    let image =
+        `https://cdn.akamai.steamstatic.com/steam/apps/${appid}/header.jpg`;
+
+
     /*
-       Imagen oficial de Steam.
+       Usar imágenes locales para los
+       tres juegos que ya subiste.
     */
 
-    const image =
-        `https://cdn.akamai.steamstatic.com/steam/apps/${appid}/header.jpg`;
+    if(appid === 218620){
+
+        image =
+            "img/payday2.jpg";
+
+    }
+
+    else if(appid === 1272080){
+
+        image =
+            "img/payday3.jpg";
+
+    }
+
+    else if(appid === 1590760){
+
+        image =
+            "img/metal-slug-tactics.jpg";
+
+    }
 
 
     pendingGame = {
 
         name:name,
+
         price:Number(priceValue),
+
         platform:"STEAM",
+
         appid:appid,
+
         image:image
 
     };
@@ -1880,7 +1853,7 @@ async function searchSteamGame(){
     preview.onerror = function(){
 
         message.textContent =
-            "El juego fue encontrado, pero Steam no entregó la imagen.";
+            "El juego fue encontrado, pero no se pudo cargar la imagen.";
 
     };
 
@@ -1888,7 +1861,7 @@ async function searchSteamGame(){
 
 
 /* =========================================================
-   PUBLICAR JUEGO
+   PUBLICAR
 ========================================================= */
 
 function publishGame(){
@@ -1956,6 +1929,7 @@ function publishGame(){
 
     pendingGame = null;
 
+
     document.getElementById(
         "publishButton"
     ).style.display =
@@ -1965,7 +1939,7 @@ function publishGame(){
 
 
 /* =========================================================
-   LISTA ADMIN
+   ADMIN
 ========================================================= */
 
 function renderAdminGames(){
@@ -2078,14 +2052,14 @@ function startPayment(){
 
 
     /*
-       Mercado Pago se conectará aquí
-       mediante un backend seguro.
+       TODAVÍA NO CONECTADO A MERCADO PAGO.
 
-       NO colocar Access Token en este archivo.
+       El Access Token NO debe ir aquí.
+       Para el pago real necesitaremos
+       un backend.
     */
 
     alert(
-        "El pedido está listo. " +
         "Mercado Pago se conectará en la siguiente etapa."
     );
 
@@ -2100,7 +2074,8 @@ function closeModal(id){
 
     document.getElementById(
         id
-    ).style.display = "none";
+    ).style.display =
+        "none";
 
 }
 
@@ -2158,4 +2133,3 @@ updateAccountButton();
 
 </body>
 </html>
-```
